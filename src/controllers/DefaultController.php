@@ -25,6 +25,7 @@ use League\Fractal\Serializer\SerializerAbstract;
 use ReflectionFunction;
 use yii\base\InvalidConfigException;
 use yii\base\UserException;
+use yii\caching\TagDependency;
 use yii\web\HttpException;
 use yii\web\JsonResponseFormatter;
 use yii\web\Response;
@@ -234,7 +235,14 @@ class DefaultController extends Controller
 
             /** @phpstan-ignore-next-line */
             [$dep, $maxDuration] = $elementsService->stopCollectingCacheInfo();
-            $dep->tags[] = 'element-api';
+            
+            if (is_null($dep)) {
+                $dep = new TagDependency([
+                    'tags' => ['element-api'],
+                ]);
+            } else {
+                $dep->tags[] = 'element-api';
+            }
 
             if ($maxDuration) {
                 if ($expire !== null) {
