@@ -109,7 +109,7 @@ class DefaultController extends Controller
 
                 if (($cachedContent = $cacheService->get($cacheKey)) !== false) {
                     if (StringHelper::startsWith($cachedContent, 'data:')) {
-                        list($contentType, $cachedContent) = explode(',', substr($cachedContent, 5), 2);
+                        [$contentType, $cachedContent] = explode(',', substr($cachedContent, 5), 2);
                     }
                     // Set the JSON headers
                     $formatter = new JsonResponseFormatter([
