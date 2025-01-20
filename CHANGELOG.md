@@ -1,5 +1,9 @@
 # Release Notes for Element API
 
+## Unreleased
+
+- Fixed an error that occurred if no cache tags were registered by an endpoint’s element query. ([#196](https://github.com/craftcms/element-api/issues/196))
+
 ## 4.1.0 - 2024-03-14
 
 - Element API now requires Craft 4.3.0+ or 5.0.0+.
