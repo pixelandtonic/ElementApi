@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Endpoint configs are now merged into the `defaults` array recursively, making it possible to specify default criteria params. ([#195](https://github.com/craftcms/element-api/issues/195))
 - Fixed an error that occurred if no cache tags were registered by an endpoint’s element query. ([#196](https://github.com/craftcms/element-api/issues/196))
 
 ## 4.1.0 - 2024-03-14

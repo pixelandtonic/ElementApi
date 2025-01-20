@@ -83,7 +83,7 @@ class DefaultController extends Controller
 
             if (is_array($config)) {
                 // Merge in the defaults
-                $config = array_merge($plugin->getDefaultResourceAdapterConfig(), $config);
+                $config = ArrayHelper::merge($plugin->getDefaultResourceAdapterConfig(), $config);
             }
 
             // Prevent API endpoints from getting indexed
